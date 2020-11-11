@@ -1,32 +1,31 @@
 function PhoneNumberFormatter(numbers) {
-    //in: array of digits
-  this.numbers = numbers;
+  //in: array of digits
+this.numbers = numbers;
 }
 
 PhoneNumberFormatter.prototype.render = function() {
-  var string = '';
-  let areaCode = this.parenthesize(this.getAreaCode());
-  let exchangeCode = this.getExchangeCode();
-  let lineNumber = this.getLineNumber();
-  string = areaCode + exchangeCode + lineNumber;
-  return string
+var string = '';
+let areaCode = this.parenthesize(this.getAreaCode());
+let exchangeCode = this.getExchangeCode();
+let lineNumber = this.getLineNumber();
+string = areaCode + exchangeCode + lineNumber;
+return string
 };
 
 PhoneNumberFormatter.prototype.getAreaCode = function() {
-  let areaCode = ""
-  for (let i=0; i<3; i++) {
-      areaCode += this.numbers[i]; 
-  }
-  return areaCode
+let areaCode = ""
+for (let i=0; i<3; i++) {
+    areaCode += this.numbers[i]; 
+}
+return areaCode
 };
 
 PhoneNumberFormatter.prototype.getExchangeCode = function() {
-  let exchangeCode = " "
-  for (let i=3; i<6; i++) {
-      exchangeCode += this.numbers[i]; 
-  }
-  exchangeCode += "-";
-  return exchangeCode;
+let exchangeCode = ""
+for (let i=3; i<6; i++) {
+    exchangeCode += this.numbers[i]; 
+}
+return exchangeCode;
 };
 
 PhoneNumberFormatter.prototype.getLineNumber = function() {
